@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden Route Foodie Explorer</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; color: #333; }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { color: #1a202c; font-size: 24px; margin-bottom: 5px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; }
+        .tag { display: inline-block; background: #e2e8f0; color: #4a5568; font-size: 11px; font-weight: bold; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; margin-bottom: 10px; align-self: flex-start; }
+        .town-tag { background: #dee2e6; color: #212529; font-size: 11px; padding: 4px 8px; border-radius: 4px; font-weight: 500; margin-left: 5px; }
+        .name { font-size: 18px; font-weight: bold; color: #2d3748; margin: 0 0 8px 0; }
+        .desc { font-size: 14px; color: #718096; line-height: 1.4; margin-bottom: 15px; flex-grow: 1; }
+        .contact { font-size: 13px; color: #4a5568; border-top: 1px solid #edf2f7; padding-top: 12px; margin-bottom: 15px; }
+        .btn { display: block; text-align: center; background: #007bff; color: white; text-decoration: none; padding: 10px; border-radius: 6px; font-weight: bold; font-size: 14px; transition: background 0.2s; }
+        .btn:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>📍 Garden Route Foodie Hubs</h1>
+        <p style="color: #718096; margin: 0;">Live interface powered by your repository API</p>
+    </header>
+
+    <div class="grid" id="restaurant-grid"></div>
+
+    <script>
+        // Fetches your real live dataset directly from your repository asset
+        fetch('restaurants.json')
+            .then(response => response.json())
+            .then(data => {
+                const grid = document.getElementById('restaurant-grid');
+                data.restaurants.forEach(place => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <div>
+                            <div>
+                                <span class="tag">${place.cuisine_type}</span>
+                                <span class="town-tag">🏙️ ${place.town}</span>
+                            </div>
+                            <h2 class="name">${place.name}</h2>
+                            <p class="desc">${place.description}</p>
+                        </div>
+                        <div>
+                            <div class="contact">
+                                📞 <b>Phone:</b> ${place.phone}<br>
+                                🌐 <a href="${place.website}" target="_blank" style="color: #007bff; text-decoration: none;">Visit Website</a>
+                            </div>
+                            <a href="${place.google_maps_link}" target="_blank" class="btn">🗺️ Open Map Directions</a>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            })
+            .catch(err => console.error('Error loading API payload data:', err));
+    </script>
+</body>
+</html>
