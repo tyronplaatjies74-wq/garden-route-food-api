@@ -1,0 +1,229 @@
+{
+  "region": "Garden Route, South Africa",
+  "total_places": 30,
+  "restaurants": [
+    {
+      "id": "cafe-gannet-mossel-bay",
+      "name": "Cafe Gannet",
+      "town": "Mossel Bay",
+      "cuisine_type": "Seafood & Sushi",
+      "description": "Mossel Bay's premier seafood restaurant, offering ocean views and fresh coastal catches.",
+      "phone": "+27 44 691 1885",
+      "website": "https://cafegannet.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "kaai-4-boma-mossel-bay",
+      "name": "Kaai 4 Boma Restaurant",
+      "town": "Mossel Bay",
+      "cuisine_type": "Traditional South African Braai",
+      "description": "An informal open-air beach boma serving traditional spit braais, potjiekos, and fresh bread.",
+      "phone": "+27 44 691 0056",
+      "website": "https://kaai4.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "de-vette-mossel-mossel-bay",
+      "name": "De Vette Mossel",
+      "town": "Mossel Bay",
+      "cuisine_type": "Seafood Beach Buffet",
+      "description": "Eat as much fresh seafood as you like right on the beach in a completely rustic, outdoor setting.",
+      "phone": "+27 73 346 4594",
+      "website": "https://devettemossel.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "101-meade-street-george",
+      "name": "101 Meade Street",
+      "town": "George",
+      "cuisine_type": "Contemporary Fine Dining",
+      "description": "An upscale urban restaurant focusing on seasonal local ingredients and artisan cooking.",
+      "phone": "+27 44 874 0343",
+      "website": "https://101meade.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "old-townhouse-george",
+      "name": "Old Townhouse Restaurant",
+      "town": "George",
+      "cuisine_type": "Steakhouse & Local Classics",
+      "description": "Set in a historic 1847 building, famous for prime steaks and traditional South African hospitality.",
+      "phone": "+27 44 874 3663",
+      "website": "https://oldtownhousegeorge.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "the-fat-fish-george",
+      "name": "The Fat Fish",
+      "town": "George",
+      "cuisine_type": "Seafood & Tapas",
+      "description": "Stylish, upscale dining featuring exceptionally prepared fish dishes and a vibrant tapas menu.",
+      "phone": "+27 44 874 1107",
+      "website": "https://thefatfish.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "ninas-cafe-george",
+      "name": "Nina's Cafe",
+      "town": "George",
+      "cuisine_type": "Global Cafe & Bakery",
+      "description": "A quirky local favorite with a massive menu ranging from healthy breakfasts to rich, comforting dinners.",
+      "phone": "+27 44 873 5431",
+      "website": "https://ninascafe.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "laurens-bistro-george",
+      "name": "Lauren's Bistro",
+      "town": "George",
+      "cuisine_type": "European-Style Bistro",
+      "description": "A charming, intimate spot serving delicious home-style breakfasts, lunches, and sweet treats.",
+      "phone": "+27 44 874 4112",
+      "website": "https://laurens.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "the-girls-wilderness",
+      "name": "The Girls Restaurant",
+      "town": "Wilderness",
+      "cuisine_type": "African & Seafood Fusion",
+      "description": "Award-winning village hot spot serving dynamic prawns, curries, and African-inspired dishes.",
+      "phone": "+27 44 877 1648",
+      "website": "https://thegirlsrestaurant.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "pomodoro-wilderness",
+      "name": "Pomodoro",
+      "town": "Wilderness",
+      "cuisine_type": "Trattoria & Italian Pizza",
+      "description": "A lively, bustling Italian hub in the center of Wilderness village with superb wood-fired pizzas.",
+      "phone": "+27 44 877 1403",
+      "website": "https://pomodorowilderness.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "salinas-wilderness",
+      "name": "Salinas Beach Restaurant",
+      "town": "Wilderness",
+      "cuisine_type": "Mediterranean & Seafood",
+      "description": "Boasts spectacular panoramic views over the Wilderness beach, perfect for sunset cocktails.",
+      "phone": "+27 44 877 0001",
+      "website": "https://salinas.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "flava-cafe-wilderness",
+      "name": "Flava Cafe",
+      "town": "Wilderness",
+      "cuisine_type": "Modern Bistro & Comfort Food",
+      "description": "Relaxed and trendy upstairs restaurant balcony serving premium burgers, steaks, and wraps.",
+      "phone": "+27 44 877 0345",
+      "website": "https://flavacafe.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "pili-pili-sedgefield",
+      "name": "Pili Pili Beach Bar",
+      "town": "Sedgefield",
+      "cuisine_type": "Casual Beach Pub & Pizza",
+      "description": "Laid-back, feet-in-the-sand island vibe situated right at Myoli Beach, popular with kitesurfers.",
+      "phone": "+27 44 343 3108",
+      "website": "https://pilipili.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "montecellos-sedgefield",
+      "name": "Montecello Seafood & Grill",
+      "town": "Sedgefield",
+      "cuisine_type": "Steak & Seafood",
+      "description": "Famous for its legendary spare ribs, garlic snails, and warmly welcoming owner-run atmosphere.",
+      "phone": "+27 44 343 1780",
+      "website": "https://montecellos.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "trattoria-da-vinci-sedgefield",
+      "name": "Trattoria da Vinci",
+      "town": "Sedgefield",
+      "cuisine_type": "Intimate Italian Bistro",
+      "description": "Cozy, local neighborhood spot featuring authentic pasta sauces, live music nights, and thin pizzas.",
+      "phone": "+27 44 343 1867",
+      "website": "https://davincisedgefield.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "sirocco-knysna",
+      "name": "Sirocco",
+      "town": "Knysna",
+      "cuisine_type": "Seafood & Sushi",
+      "description": "Vibrant, trendy waterside dining on Thesen Island overlooking the Knysna lagoon.",
+      "phone": "+27 44 382 4874",
+      "website": "http://sirocco.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "34-south-knysna",
+      "name": "34 South",
+      "town": "Knysna",
+      "cuisine_type": "Seafood Oyster Bar & Deli",
+      "description": "Located at the Knysna Waterfront; part restaurant, part deli, and completely focused on fresh oysters.",
+      "phone": "+27 44 382 7331",
+      "website": "https://34south.biz",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "east-head-cafe-knysna",
+      "name": "East Head Café",
+      "town": "Knysna",
+      "cuisine_type": "Breakfast & Gourmet Burgers",
+      "description": "Situated directly on the rocks of the famous Knysna Heads, offering arguably the best views in town.",
+      "phone": "+27 44 384 0933",
+      "website": "https://eastheadcafe.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "the-fat-fish-knysna",
+      "name": "The Fat Fish",
+      "town": "Knysna",
+      "cuisine_type": "Seafood, Sushi & Tapas",
+      "description": "Overlooking the water on Central Island, offering world-class seafood platter spreads in a chic venue.",
+      "phone": "+27 44 382 4781",
+      "website": "https://thefatfish.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "freshline-fisheries-knysna",
+      "name": "Freshline Fisheries",
+      "town": "Knysna",
+      "cuisine_type": "Rustic Seafood Braai",
+      "description": "An outdoor, beach sand floor restaurant specializing in perfectly grilled linefish, hake, and calamari.",
+      "phone": "+27 44 382 3131",
+      "website": "https://freshlinefisheries.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "ile-de-pain-knysna",
+      "name": "île de païn",
+      "town": "Knysna",
+      "cuisine_type": "Artisanal Bakery & Cafe",
+      "description": "A legendary cafe on Thesen Island renowned nationwide for its world-class pastries and sourdough breads.",
+      "phone": "+27 44 302 5707",
+      "website": "https://iledepain.co.za",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "zinzi-plettenberg-bay",
+      "name": "Zinzi Restaurant",
+      "town": "Plettenberg Bay",
+      "cuisine_type": "Global Fusion Fine Dining",
+      "description": "Exquisite global flavors served in a beautifully designed, rustic-chic forest sanctuary setting.",
+      "phone": "+27 44 532 8226",
+      "website": "https://hunterhotels.com",
+      "google_maps_link": "https://google.com"
+    },
+    {
+      "id": "enricos-plettenberg-bay",
+      "name": "Enrico's Restaurant",
+      "town": "Plettenberg Bay",
+      "cuisine_type": "Italian Seafood & Pizza",
