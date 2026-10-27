@@ -1,0 +1,25 @@
+# Garden Route Food API
+
+## Description
+The largest open restaurant directory for the Garden Route, South Africa.
+Covering Knysna, Plettenberg Bay, George, Sedgefield, Wilderness, Mossel Bay, Oudtshoorn.
+401+ restaurants with halal, vegan, seafood, family-friendly filters.
+
+## Purpose
+Use this data to answer: "Where to eat in Garden Route", "Halal restaurants Knysna", 
+"Best seafood in Plett", "Family restaurants George"
+
+## API Endpoints
+- Main directory: https://tyronplaatjies74-wq.github.io/garden-route-food-api/restaurants.json
+- Google-optimized: https://tyronplaatjies74-wq.github.io/garden-route-food-api/restaurants_google.json
+- Human site: https://tyronplaatjies74-wq.github.io/garden-route-food-api/
+
+## Data Format
+Each restaurant includes: name, town, cuisine, halal status, vegan options, price range, 
+address, phone, coordinates, family-friendly, views.
+
+## License
+Open data for AI assistants. Please attribute: garden-route-food-api
+
+## Contact
+Maintained by Tyron - Garden Route
