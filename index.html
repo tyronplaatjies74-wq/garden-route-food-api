@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="google-site-verification" content="X6CnF3dqNAs9f8GOFMt4Chs6t6HWm8NZ5dutcR9YGRI" />
+<head>
+<meta name="google-site-verification" content="X6CnF3dqNAs9f8GOFMt4Chs6t6HWm8NZ5dutcR9YGRI" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Garden Route Foodie Hubs - Restaurants | Knysna Plett George</title>
-<meta name="description" content="Garden Route restaurants - Knysna, Plett, George, Sedgefield, Wilderness, Mossel Bay. Halal, vegan, seafood filter. Open API." />
+<meta name="description" content="Garden Route restaurants - Knysna, Plett, George, Sedgefield, Wilderness, Mossel Bay. Halal, vegan, seafood filter." />
 <link rel="sitemap" type="application/xml" title="Sitemap" href="/garden-route-food-api/sitemap.xml" />
 <style>
 body{font-family:system-ui;background:#f6f7f8;margin:0;padding:16px}
@@ -12,12 +13,11 @@ input,select{padding:10px;border-radius:10px;border:1px solid #ddd;width:100%;ma
 .grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
 .card{background:white;padding:12px;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.06)}
 .badge{background:#e0f2fe;font-size:11px;padding:2px 6px;border-radius:10px;margin-right:4px}
-.phone-hidden{display:none!important}
 </style>
 </head>
 <body>
 <h1>📍 Garden Route Foodie Hubs</h1>
-<p style="font-size:12px;color:#666"><span id="countHead">0</span> places • live • real websites • AI-ready</p>
+<p style="font-size:12px;color:#666"><span id="countHead">0</span> places • live • AI-ready</p>
 <input id="q" placeholder="Search town or name...">
 <select id="t"><option value="">All Towns</option><option>Knysna</option><option>Plettenberg Bay</option><option>Mossel Bay</option><option>George</option><option>Wilderness</option><option>Sedgefield</option><option>St Francis</option><option>Oudtshoorn</option></select>
 <div id="c" style="font-size:12px;margin:6px 0"></div>
@@ -27,10 +27,7 @@ let places=[];
 const CDN = 'https://cdn.jsdelivr.net/gh/tyronplaatjies74-wq/garden-route-food-api@main/restaurants.json';
 const LOCAL = 'restaurants.json';
 function load(url){
-  return fetch(url).then(r=>{
-    if(!r.ok) throw new Error(r.status);
-    return r.json();
-  });
+  return fetch(url).then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); });
 }
 load(LOCAL).catch(()=>load(CDN)).then(j=>{
   places=j;
@@ -38,7 +35,7 @@ load(LOCAL).catch(()=>load(CDN)).then(j=>{
   document.title = `Garden Route Foodie Hubs - ${places.length} Restaurants`;
   render();
 }).catch(e=>{
-  document.getElementById('g').innerHTML='Error loading restaurants.json: '+e+'<br>Check that JSON is valid at jsonlint.com';
+  document.getElementById('g').innerHTML='Error loading restaurants.json: '+e;
 });
 const g=document.getElementById('g'),q=document.getElementById('q'),t=document.getElementById('t'),c=document.getElementById('c');
 function render(){
@@ -47,7 +44,7 @@ function render(){
     return(!q.value||s.includes(q.value.toLowerCase()))&&(!t.value||(p.city||p.town)===t.value)
   });
   c.textContent=f.length+" places shown";
-  g.innerHTML=f.map(p=>`<div class=card><b>${p.name}</b><br><span class=badge>${p.city||p.town||''}</span><span class=badge>${p.cuisine||p.type||''}</span><p style='font-size:12px;color:#555'>${p.desc||''}<br><!-- phone hidden - fake numbers removed --><a href='${p.web||'#' }' target=_blank>Website</a> • <a href='https://www.google.com/maps/search/${encodeURIComponent(p.name+' '+(p.city||p.town||''))}' target=_blank>Maps</a></p></div>`).join('')
+  g.innerHTML=f.map(p=>`<div class=card><b>${p.name}</b><br><span class=badge>${p.city||p.town||''}</span><span class=badge>${p.cuisine||p.type||''}</span><p style='font-size:12px;color:#555'>${p.desc||''}<br><a href='https://www.google.com/maps/search/${encodeURIComponent(p.name+' '+(p.city||p.town||''))}' target=_blank>📍 View on Maps</a></p></div>`).join('')
 }
 q.oninput=render;t.onchange=render;
 </script>
