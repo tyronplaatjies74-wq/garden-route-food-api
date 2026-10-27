@@ -2,39 +2,9 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Garden Route Foodie Hubs - 401 Restaurants | Knysna Plett George</title>
-
-<!-- SEO FOR AI AGENTS: Google, ChatGPT, Claude, Meta AI -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Garden Route Restaurant Directory - 401 Restaurants",
-  "description": "Complete restaurant guide for Knysna, Plettenberg Bay, George, Sedgefield, Wilderness, Mossel Bay, Oudtshoorn. Filter by halal, vegan, seafood.",
-  "url": "https://tyronplaatjies74-wq.github.io/garden-route-food-api/",
-  "numberOfItems": 401,
-  "itemListElement": [
-    {
-      "@type": "Restaurant",
-      "name": "Garden Route Food API",
-      "servesCuisine": ["Seafood", "Halal", "Vegan", "South African", "Italian"],
-      "address": {
-        "@type": "PostalAddress",
-        "addressRegion": "Garden Route",
-        "addressCountry": "ZA"
-      }
-    }
-  ],
-  "publisher": {
-    "@type": "Organization",
-    "name": "Garden Route Food API",
-    "url": "https://tyronplaatjies74-wq.github.io/garden-route-food-api/"
-  }
-}
-</script>
-<meta name="description" content="401 Garden Route restaurants - Knysna, Plett, George, Sedgefield, Wilderness, Mossel Bay. Halal, vegan, seafood, family-friendly filter. Open API for AI assistants." />
+<title>Garden Route Foodie Hubs - Restaurants | Knysna Plett George</title>
+<meta name="description" content="Garden Route restaurants - Knysna, Plett, George, Sedgefield, Wilderness, Mossel Bay. Halal, vegan, seafood filter. Open API." />
 <link rel="sitemap" type="application/xml" title="Sitemap" href="/garden-route-food-api/sitemap.xml" />
-
 <style>
 body{font-family:system-ui;background:#f6f7f8;margin:0;padding:16px}
 h1{font-size:20px}
@@ -46,16 +16,41 @@ input,select{padding:10px;border-radius:10px;border:1px solid #ddd;width:100%;ma
 </head>
 <body>
 <h1>📍 Garden Route Foodie Hubs</h1>
-<p style="font-size:12px;color:#666">401 places • live • real websites • AI-ready</p>
+<p style="font-size:12px;color:#666"><span id="countHead">0</span> places • live • real websites • AI-ready</p>
 <input id="q" placeholder="Search town or name...">
 <select id="t"><option value="">All Towns</option><option>Knysna</option><option>Plettenberg Bay</option><option>Mossel Bay</option><option>George</option><option>Wilderness</option><option>Sedgefield</option><option>St Francis</option><option>Oudtshoorn</option></select>
 <div id="c" style="font-size:12px;margin:6px 0"></div>
-<div id="g" class="grid"></div>
+<div id="g" class="grid">Loading...</div>
 <script>
 let places=[];
-fetch('restaurants.json').then(r=>r.json()).then(j=>{places=j;render()}).catch(e=>{document.getElementById('g').innerHTML='Error: restaurants.json not found or invalid: '+e});
+const CDN = 'https://cdn.jsdelivr.net/gh/tyronplaatjies74-wq/garden-route-food-api@main/restaurants.json';
+const LOCAL = 'restaurants.json';
+
+function load(url){
+  return fetch(url).then(r=>{
+    if(!r.ok) throw new Error(r.status);
+    return r.json();
+  });
+}
+
+load(LOCAL).catch(()=>load(CDN)).then(j=>{
+  places=j;
+  document.getElementById('countHead').textContent = places.length;
+  document.title = `Garden Route Foodie Hubs - ${places.length} Restaurants`;
+  render();
+}).catch(e=>{
+  document.getElementById('g').innerHTML='Error loading restaurants.json: '+e+'<br>Check that JSON is valid at jsonlint.com';
+});
+
 const g=document.getElementById('g'),q=document.getElementById('q'),t=document.getElementById('t'),c=document.getElementById('c');
-function render(){let f=places.filter(p=>{let s=((p.name||'')+(p.city||p.town||'')+(p.cuisine||p.type||'')+(p.desc||'')).toLowerCase();return(!q.value||s.includes(q.value.toLowerCase()))&&(!t.value||(p.city||p.town)===t.value)});c.textContent=f.length+" places";g.innerHTML=f.map(p=>`<div class=card><b>${p.name}</b><br><span class=badge>${p.city||p.town}</span><span class=badge>${p.cuisine||p.type}</span><p style='font-size:12px;color:#555'>${p.desc||''}<br>📞 ${p.phone||''}<br><a href='${p.web||'#' }' target=_blank>Website</a> • <a href='https://www.google.com/maps/search/${encodeURIComponent(p.name+' '+(p.city||''))}' target=_blank>Maps</a></p></div>`).join('')}
+function render(){
+  let f=places.filter(p=>{
+    let s=((p.name||'')+(p.city||p.town||'')+(p.cuisine||p.type||'')+(p.desc||'')).toLowerCase();
+    return(!q.value||s.includes(q.value.toLowerCase()))&&(!t.value||(p.city||p.town)===t.value)
+  });
+  c.textContent=f.length+" places shown";
+  g.innerHTML=f.map(p=>`<div class=card><b>${p.name}</b><br><span class=badge>${p.city||p.town||''}</span><span class=badge>${p.cuisine||p.type||''}</span><p style='font-size:12px;color:#555'>${p.desc||''}<br>📞 ${p.phone||''}<br><a href='${p.web||'#' }' target=_blank>Website</a> • <a href='https://www.google.com/maps/search/${encodeURIComponent(p.name+' '+(p.city||p.town||''))}' target=_blank>Maps</a></p></div>`).join('')
+}
 q.oninput=render;t.onchange=render;
 </script>
 </body>
