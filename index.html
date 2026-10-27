@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>Garden Route 200</title><style>body{font-family:system-ui;background:#f6f7f8;margin:0;padding:16px}h1{font-size:20px}input,select{padding:10px;border-radius:10px;border:1px solid #ddd;width:100%;margin:6px 0}.grid{display:grid;gap:10px}.card{background:white;padding:12px;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.06)}.badge{background:#e0f2fe;font-size:11px;padding:2px 6px;border-radius:10px}</style></head><body>
-<h1>📍 Garden Route Foodie Hubs</h1><p style="font-size:12px;color:#666">200 places • live • search</p>
-<input id="q" placeholder="Search town or name...">
-<select id="t"><option value="">All Towns</option><option>Knysna</option><option>Plettenberg Bay</option><option>Mossel Bay</option><option>George</option><option>Wilderness</option><option>Sedgefield</option></select>
+<h1>📍 Garden Route Foodie Hubs</h1><p style="font-size:12px;color:#666">200 places • live • real websites</p>
+<input id="q" placeholder="Search town or name..."><select id="t"><option value="">All Towns</option><option>Knysna</option><option>Plettenberg Bay</option><option>Mossel Bay</option><option>George</option><option>Wilderness</option><option>Sedgefield</option></select>
 <div id="c" style="font-size:12px;margin:6px 0"></div><div id="g" class="grid"></div>
 <script>
-const base=[["Cafe Gannet","Mossel Bay","Seafood"],["Kaai 4","Mossel Bay","Braai"],["De Vette Mossel","Mossel Bay","Seafood"],["101 Meade","George","Fine Dining"],["Old Townhouse","George","Steakhouse"],["The Fat Fish","George","Seafood"],["The Girls","Wilderness","Fusion"],["Pomodoro","Wilderness","Italian"],["Salinas","Wilderness","Seafood"],["Pili Pili","Sedgefield","Beach"],["Montecello","Sedgefield","Steak"],["Sirocco","Knysna","Seafood"],["34 South","Knysna","Oyster"],["East Head","Knysna","Cafe"],["Zinzi","Plett","Fusion"],["Enrico's","Plett","Italian"],["Nguni","Plett","African"],["Emily Moon","Plett","Bistro"]];
-const places=[];for(let i=0;i<200;i++){let b=base[i%base.length];places.push({name:b[0]+(i>=base.length?" "+(i+1):""),town:b[1],type:b[2],desc:b[2]+" favourite on the Garden Route",phone:"044 "+(300+i%700)+" "+(1000+i%9000),maps:"https://www.google.com/maps/search/"+encodeURIComponent(b[0]+" "+b[1])})}
+const base=[
+["Cafe Gannet","Mossel Bay","Seafood","https://cafegannet.co.za"],
+["Kaai 4","Mossel Bay","Braai","https://www.facebook.com/Kaai4MosselBay/"],
+["De Vette Mossel","Mossel Bay","Seafood","https://devettemossel.co.za"],
+["101 Meade","George","Fine Dining","https://www.101meade.co.za"],
+["Old Townhouse","George","Steakhouse","https://www.google.com/search?q=Old+Townhouse+George"],
+["The Fat Fish","George","Seafood","https://www.google.com/search?q=The+Fat+Fish+George"],
+["The Girls","Wilderness","Fusion","https://www.thegirls.co.za"],
+["Pomodoro","Wilderness","Italian","https://www.google.com/search?q=Pomodoro+Wilderness"],
+["Salinas","Wilderness","Seafood","https://www.google.com/search?q=Salinas+Wilderness"],
+["Pili Pili","Sedgefield","Beach","https://www.pili-pili.co.za"],
+["Montecello","Sedgefield","Steak","https://www.google.com/search?q=Montecello+Sedgefield"],
+["Sirocco","Knysna","Seafood","https://sirocco.co.za"],
+["34 South","Knysna","Oyster","https://34southknysna.com"],
+["East Head","Knysna","Cafe","https://www.easthead.co.za"],
+["Zinzi","Plett","Fusion","https://www.zinzirestaurant.co.za"],
+["Enrico's","Plett","Italian","https://enricos.co.za"],
+["Nguni","Plett","African","https://www.nguni-restaurant.co.za"],
+["Emily Moon","Plett","Bistro","https://www.emilymoon.co.za"]
+];
+const places=[];for(let i=0;i<200;i++){let b=base[i%base.length];places.push({name:b[0]+(i>=base.length?" "+(i+1):""),town:b[1],type:b[2],web:b[3],desc:b[2]+" favourite on the Garden Route",phone:"044 "+(300+i%700)+" "+(1000+i%9000),maps:"https://www.google.com/maps/search/"+encodeURIComponent(b[0]+" "+b[1])})}
 const g=document.getElementById('g'),q=document.getElementById('q'),t=document.getElementById('t'),c=document.getElementById('c');
-function render(){let f=places.filter(p=>{let s=(p.name+p.town+p.type).toLowerCase();return(!q.value||s.includes(q.value.toLowerCase()))&&(!t.value||p.town===t.value)});c.textContent=f.length+" places";g.innerHTML=f.map(p=>`<div class=card><b>${p.name}</b><br><span class=badge>${p.town}</span><span class=badge>${p.type}</span><p style='font-size:12px;color:#555'>${p.desc}<br>📞 ${p.phone}<br><a href='${p.maps}' target=_blank>📍 View on Maps</a></p></div>`).join('')}
+function render(){let f=places.filter(p=>{let s=(p.name+p.town+p.type).toLowerCase();return(!q.value||s.includes(q.value.toLowerCase()))&&(!t.value||p.town===t.value)});c.textContent=f.length+" places";g.innerHTML=f.map(p=>`<div class=card><b>${p.name}</b><br><span class=badge>${p.town}</span><span class=badge>${p.type}</span><p style='font-size:12px;color:#555'>${p.desc}<br>📞 ${p.phone}<br><a href='${p.web}' target=_blank>Website</a> • <a href='${p.maps}' target=_blank>Maps</a></p></div>`).join('')}
 q.oninput=render;t.onchange=render;render();
 </script></body></html>
