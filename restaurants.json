@@ -1,4 +1,4 @@
-const restaurantsData = [
+[
   {"name":"Cafe Gannet", "city":"Mossel Bay", "cuisine":"Seafood", "web":"https://www.cafegannet.co.za", "desc":"Seafood favourite in Mossel Bay", "phone":"044 1000"},
   {"name":"Kaai 4", "city":"Mossel Bay", "cuisine":"Seafood", "web":"https://www.visfabriek.co.za", "desc":"Seafood favourite in Mossel Bay", "phone":"044 1001"},
   {"name":"Carola Anns", "city":"Mossel Bay", "cuisine":"Bistro", "web":"https://www.carolaanns.co.za", "desc":"Bistro favourite in Mossel Bay", "phone":"044 1002"},
