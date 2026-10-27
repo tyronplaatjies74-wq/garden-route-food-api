@@ -1,0 +1,17 @@
+[
+  {
+    "name": "The Blue Seafood Knysna",
+    "city": "Knysna",
+    "town": "Knysna",
+    "type": "Seafood",
+    "cuisine": "Seafood",
+    "desc": "Popular seafood spot in Knysna",
+    "phone": "+27 44 123 4567",
+    "rating": 4.6,
+    "reviews": 342,
+    "place_id": "ChIJgarden0_Kn",
+    "web": "https://www.google.com/maps/search/The+Blue+Seafood+Knysna",
+    "source": "google_places_api",
+    "family_friendly": true
+  }
+]
