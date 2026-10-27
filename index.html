@@ -12,6 +12,7 @@ input,select{padding:10px;border-radius:10px;border:1px solid #ddd;width:100%;ma
 .grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
 .card{background:white;padding:12px;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.06)}
 .badge{background:#e0f2fe;font-size:11px;padding:2px 6px;border-radius:10px;margin-right:4px}
+.phone-hidden{display:none!important}
 </style>
 </head>
 <body>
@@ -25,14 +26,12 @@ input,select{padding:10px;border-radius:10px;border:1px solid #ddd;width:100%;ma
 let places=[];
 const CDN = 'https://cdn.jsdelivr.net/gh/tyronplaatjies74-wq/garden-route-food-api@main/restaurants.json';
 const LOCAL = 'restaurants.json';
-
 function load(url){
   return fetch(url).then(r=>{
     if(!r.ok) throw new Error(r.status);
     return r.json();
   });
 }
-
 load(LOCAL).catch(()=>load(CDN)).then(j=>{
   places=j;
   document.getElementById('countHead').textContent = places.length;
@@ -41,7 +40,6 @@ load(LOCAL).catch(()=>load(CDN)).then(j=>{
 }).catch(e=>{
   document.getElementById('g').innerHTML='Error loading restaurants.json: '+e+'<br>Check that JSON is valid at jsonlint.com';
 });
-
 const g=document.getElementById('g'),q=document.getElementById('q'),t=document.getElementById('t'),c=document.getElementById('c');
 function render(){
   let f=places.filter(p=>{
@@ -49,7 +47,7 @@ function render(){
     return(!q.value||s.includes(q.value.toLowerCase()))&&(!t.value||(p.city||p.town)===t.value)
   });
   c.textContent=f.length+" places shown";
-  g.innerHTML=f.map(p=>`<div class=card><b>${p.name}</b><br><span class=badge>${p.city||p.town||''}</span><span class=badge>${p.cuisine||p.type||''}</span><p style='font-size:12px;color:#555'>${p.desc||''}<br>📞 ${p.phone||''}<br><a href='${p.web||'#' }' target=_blank>Website</a> • <a href='https://www.google.com/maps/search/${encodeURIComponent(p.name+' '+(p.city||p.town||''))}' target=_blank>Maps</a></p></div>`).join('')
+  g.innerHTML=f.map(p=>`<div class=card><b>${p.name}</b><br><span class=badge>${p.city||p.town||''}</span><span class=badge>${p.cuisine||p.type||''}</span><p style='font-size:12px;color:#555'>${p.desc||''}<br><!-- phone hidden - fake numbers removed --><a href='${p.web||'#' }' target=_blank>Website</a> • <a href='https://www.google.com/maps/search/${encodeURIComponent(p.name+' '+(p.city||p.town||''))}' target=_blank>Maps</a></p></div>`).join('')
 }
 q.oninput=render;t.onchange=render;
 </script>
