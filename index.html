@@ -2,42 +2,49 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Garden Route Food API</title>
+<title>Garden Route Foodie Hubs</title>
 <style>
-body{font-family:system-ui;background:#f4f4f5;padding:20px}
-.card{background:white;padding:16px;margin:12px 0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-h1{font-size:22px}
-.badge{background:#e0f2fe;padding:2px 8px;border-radius:999px;font-size:12px}
+body{font-family:system-ui;background:#fafafa;margin:0;padding:16px}
+h1{font-size:22px;margin:0 0 4px}
+.sub{color:#666;font-size:13px;margin-bottom:16px}
+.grid{display:grid;gap:12px}
+.card{background:white;padding:14px;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
+.card h3{margin:0 0 4px;font-size:16px}
+.badge{display:inline-block;background:#e0f2fe;font-size:11px;padding:2px 8px;border-radius:20px;margin-right:6px}
+a{color:#2563eb;text-decoration:none;font-weight:600}
 </style>
 </head>
 <body>
-<h1>Garden Route Food API</h1>
-<p id="status">Loading...</p>
-<div id="grid"></div>
+<h1>📍 Garden Route Foodie Hubs</h1>
+<div class="sub">Live • 30 places • Mossel Bay to Plett</div>
+<div id="grid" class="grid"></div>
 
 <script>
-fetch('./restaurants.json')
-  .then(r => {
-    if(!r.ok) throw new Error('restaurants.json not found: '+r.status);
-    return r.json();
-  })
-  .then(data => {
-    const list = data.restaurants || data;
-    document.getElementById('status').textContent = `Found ${list.length} places`;
-    document.getElementById('grid').innerHTML = list.map(p => `
-      <div class="card">
-        <h3>${p.name}</h3>
-        <p><span class="badge">${p.town}</span> ${p.cuisine_type}</p>
-        <p>${p.description}</p>
-        <p>📞 ${p.phone}</p>
-        <p><a href="${p.website}" target="_blank">Website</a> | <a href="${p.google_maps_link}" target="_blank">Maps</a></p>
-      </div>
-    `).join('');
-  })
-  .catch(e => {
-    document.getElementById('status').textContent = 'ERROR: ' + e.message;
-    console.error(e);
-  });
+const restaurants = [
+{"name":"Cafe Gannet","town":"Mossel Bay","cuisine_type":"Seafood & Sushi","description":"Mossel Bay's premier seafood restaurant, offering ocean views and fresh coastal catches.","phone":"+27 44 691 1885","website":"https://cafegannet.co.za","google_maps_link":"https://www.google.com/maps/search/Cafe+Gannet+Mossel+Bay"},
+{"name":"Kaai 4 Boma Restaurant","town":"Mossel Bay","cuisine_type":"Traditional Braai","description":"An informal open-air beach boma serving traditional spit braais, potjiekos, and fresh bread.","phone":"+27 44 691 0056","website":"https://kaai4.co.za","google_maps_link":"https://www.google.com/maps/search/Kaai+4+Mossel+Bay"},
+{"name":"De Vette Mossel","town":"Mossel Bay","cuisine_type":"Seafood Beach Buffet","description":"Eat as much fresh seafood as you like right on the beach in a completely rustic setting.","phone":"+27 73 346 4594","website":"https://devettemossel.co.za","google_maps_link":"https://www.google.com/maps/search/De+Vette+Mossel+Mossel+Bay"},
+{"name":"101 Meade Street","town":"George","cuisine_type":"Fine Dining","description":"Upscale urban restaurant focusing on seasonal local ingredients.","phone":"+27 44 874 0343","website":"https://101meade.co.za","google_maps_link":"https://www.google.com/maps/search/101+Meade+Street+George"},
+{"name":"Old Townhouse","town":"George","cuisine_type":"Steakhouse","description":"Set in a historic 1847 building, famous for prime steaks.","phone":"+27 44 874 3663","website":"https://oldtownhousegeorge.co.za","google_maps_link":"https://www.google.com/maps/search/Old+Townhouse+George"},
+{"name":"The Fat Fish","town":"George","cuisine_type":"Seafood & Tapas","description":"Stylish, upscale dining featuring exceptionally prepared fish dishes.","phone":"+27 44 874 1107","website":"https://thefatfish.co.za","google_maps_link":"https://www.google.com/maps/search/The+Fat+Fish+George"},
+{"name":"Sirocco","town":"Knysna","cuisine_type":"Seafood & Sushi","description":"Vibrant, trendy waterside dining on Thesen Island.","phone":"+27 44 382 4874","website":"http://sirocco.co.za","google_maps_link":"https://www.google.com/maps/search/Sirocco+Knysna"},
+{"name":"34 South","town":"Knysna","cuisine_type":"Seafood Oyster Bar","description":"Located at the Knysna Waterfront; part restaurant, part deli.","phone":"+27 44 382 7331","website":"https://34south.biz","google_maps_link":"https://www.google.com/maps/search/34+South+Knysna"},
+{"name":"East Head Café","town":"Knysna","cuisine_type":"Breakfast & Burgers","description":"Situated directly on the rocks of the famous Knysna Heads.","phone":"+27 44 384 0933","website":"https://eastheadcafe.co.za","google_maps_link":"https://www.google.com/maps/search/East+Head+Cafe+Knysna"},
+{"name":"The Fat Fish Knysna","town":"Knysna","cuisine_type":"Seafood, Sushi & Tapas","description":"Overlooking the water on Central Island, world-class seafood platter.","phone":"+27 44 382 4781","website":"https://thefatfish.co.za","google_maps_link":"https://www.google.com/maps/search/Fat+Fish+Knysna"},
+{"name":"île de païn","town":"Knysna","cuisine_type":"Bakery & Cafe","description":"Legendary cafe on Thesen Island renowned for pastries.","phone":"+27 44 302 5707","website":"https://iledepain.co.za","google_maps_link":"https://www.google.com/maps/search/Ile+de+Pain+Knysna"},
+{"name":"Zinzi Restaurant","town":"Plettenberg Bay","cuisine_type":"Global Fusion","description":"Exquisite global flavors in a rustic-chic forest sanctuary.","phone":"+27 44 532 8226","website":"https://hunterhotels.com","google_maps_link":"https://www.google.com/maps/search/Zinzi+Plett"},
+{"name":"Enrico's","town":"Plettenberg Bay","cuisine_type":"Italian Seafood & Pizza","description":"Legendary beach institution for wood-fired pizzas.","phone":"+27 44 533 1720","website":"https://enricos.co.za","google_maps_link":"https://www.google.com/maps/search/Enricos+Plett"}
+];
+
+document.getElementById('grid').innerHTML = restaurants.map(r=>`
+<div class="card">
+<h3>${r.name}</h3>
+<div><span class="badge">${r.town}</span><span class="badge">${r.cuisine_type}</span></div>
+<p style="font-size:13px;color:#444">${r.description}</p>
+<p style="font-size:13px">📞 ${r.phone}<br>
+<a href="${r.website}" target="_blank">Website</a> • <a href="${r.google_maps_link}" target="_blank">Maps</a></p>
+</div>
+`).join('');
 </script>
 </body>
 </html>
